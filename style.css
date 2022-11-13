@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Red Hat Mono', monospace;
+    min-height: 100vh;
+    background: #32373e;
+    color: #fff;
+} a, ul, li {
+    list-style: none;
+    text-decoration: none;
+}
+
+main {
+    padding: 10px;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: 1rem auto;
+    gap: 10px;
+}
+
+.card {
+    height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+} .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(0.75);
+    transition: transform 0.5s ease-in-out, filter 0.8s ease-in-out;
+} .image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgb(255 255 255 / 0%), rgb(0 0 0));
+} .card:hover .image {
+    transform: scale(1.15);
+    filter: grayscale(0);
+} .content {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    color: #d2d2d2;
+    transition: bottom 0.5s ease-in-out;
+} .header {
+    font-size: 1.3rem;
+} .preview {
+    padding: 20px 0;
+    font-size: 0.8rem;
+    line-height: 20px;
+} .btn {
+    cursor: pointer;
+    border: 2px solid #d2d2d2;
+    background: transparent;
+    padding: 8px;
+    width: 120px;
+    color: #d2d2d2;
+    border: none;
+    border-left: 2px solid #d2d2d2;
+    border-right: 2px solid #d2d2d2;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 700;
+    position: relative;
+} .btn span {
+    display: inline-block;
+    background: #d2d2d2;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    height: 2px;
+} .btn span:nth-child(1) {
+    width: 70%;
+    top: 0;
+    left: 0;
+} .btn span:nth-child(2) {
+    width: 20%;
+    top: 0;
+    right: 0;
+} .btn span:nth-child(3) {
+    width: 20%;
+    bottom: 0;
+    left: 0;
+} .btn span:nth-child(4) {
+    width: 70%;
+    bottom: 0;
+    right: 0;
+} .btn:hover span:nth-child(1), .btn:hover span:nth-child(4) {
+    width: 20%;
+} .btn:hover span:nth-child(2), .btn:hover span:nth-child(3) {
+    width: 70%;
+}
